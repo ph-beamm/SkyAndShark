@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Prompt', Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2em;
+        }
+
+        .love-message {
+            font-size: 24px;
+            color: #14AFA9;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="love-display"></div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const times = parseInt(params.get('times'), 10);
+
+        let loveMessage = '';
+        for (let i = 0; i < times; i++) {
+            loveMessage += `เค้ารัก${name}&hearts; `;
+        }
+
+        document.getElementById('love-display').innerHTML = `<p class="love-message">${loveMessage}</p>`;
+    </script>
+</body>
+</html>
